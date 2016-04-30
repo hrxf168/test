@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础练习1</title>
+	<style>
+	body{margin: 30px 100px;}
+	.wrap a{line-height: 38px;border: 1px solid #0000f0;display: block;float: left;margin-left: -1px;text-align: center;font-size: 14px;text-decoration: none;padding: 0px 15px;color: #f06000;background-color: #f0f0f0;position: relative;}
+	.wrap div{height: 38px;width: 50px;border-bottom: 1px solid #0000f0;float: left;border-left:none;border-top:1px solid white;border-right:none;background-color: #fff;}
+	.wrap a:hover,.wrap .active{border:1px solid #000;border-bottom:1px solid #fff;background: #fff;z-index: 1;}
+	</style>
+	<script>
+		window.onload = function(){
+			var tab1 = new Active_tab("idWrap1");
+			var tab1 = new Active_tab("idWrap2");
+			var tab1 = new Active_tab("idWrap3");
+
+		}
+
+		function Active_tab(id1){
+			var i;
+			var oWrap = document.getElementById(id1);
+			this.aA =oWrap.getElementsByTagName('a');
+			var obj = this;
+			for(i=0;i<obj.aA.length;i++)
+			{
+				this.aA[i].onmouseover = function(ev){
+					var k;
+					for(k=0;k<obj.aA.length;k++)
+					{
+						obj.aA[k].className = "";
+					}
+					var ev = ev||window.event;
+					var target = ev.target || ev.srcElement;
+					target.className = "active";
+				}
+			}
+		}	
+	</script>
+</head>
+<body>
+	<div class="wrap" id="idWrap2">
+		<div> </div>
+		<a class ="active" href="#">妙味</a>
+		<a class ="" href="#">欢迎你</a>
+		<a class ="" href="#">妙味课堂</a>
+		<a class ="" href="#">欢迎大家！</a>
+		<a class ="" href="#">miaov</a>
+		<div> </div>
+	</div>
+	<div style="height: 200px;"></div>
+
+	<div class="wrap" id="idWrap1">
+		<div> </div>
+		<a class ="active" href="#">妙味</a>
+		<a class ="" href="#">欢迎你</a>
+		<a class ="" href="#">妙味课堂</a>
+		<a class ="" href="#">欢迎大家！</a>
+		<a class ="" href="#">miaov</a>
+		<div> </div>
+	</div>
+	<div style="height: 200px;"></div>
+
+	<div class="wrap" id="idWrap3">
+		<div> </div>
+		<a class ="active" href="#">妙味</a>
+		<a class ="" href="#">欢迎你</a>
+		<a class ="" href="#">妙味课堂</a>
+		<a class ="" href="#">欢迎大家！</a>
+		<a class ="" href="#">miaov</a>
+		<div> </div>
+	</div>
+</body>
+</html>
